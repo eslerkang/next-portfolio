@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Hero() {
   return (
     <>
@@ -17,9 +19,11 @@ export default function Hero() {
           아름다우냐?
         </p>
         <div className="flex justify-center">
-          <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-            프로젝트 보러가기
-          </button>
+          <Link href="/projects">
+            <a className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+              프로젝트 보러가기
+            </a>
+          </Link>
         </div>
       </div>
     </>
