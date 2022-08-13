@@ -1,13 +1,22 @@
 import Layout from "../components/layout";
+import ProjectItem from "../components/projects/project-item";
 import { NOTION_DATABASE_ID, NOTION_TOKEN_ID } from "../config";
 
 export default function Projects({ projects }) {
   return (
     <Layout>
-      <h1>총 프로젝트 : {projects.results.length}</h1>
-      {projects.results.map((project) => (
-        <h1 key={project.id}>{project.properties.name.title[0].plain_text}</h1>
-      ))}
+      <div className=" flex flex-col items-center justify-center px-6 min-h-screen my-10">
+        <h1 className=" text-4xl font-bold sm:text-6xl">
+          총 프로젝트:
+          <span className="pl-3 text-blue-400">{projects.results.length}</span>
+          개
+        </h1>
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8 m-6 py-10">
+          {projects.results.map((project) => (
+            <ProjectItem project={project} key={project.id} />
+          ))}
+        </div>
+      </div>
     </Layout>
   );
 }
